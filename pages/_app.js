@@ -2,7 +2,8 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import {useEffect, useState} from "react";
 import "../styles/globals.css";
-import Sidebar from "@/pages/Components/Sidebar"; // Firebase config
+import Sidebar from "@/pages/Components/Sidebar";
+import {useRouter} from "next/router"; // Firebase config
 const firebaseConfig = {
     apiKey: "AIzaSyBKk7qlcYV-axge05Ej83ZI-dLcDJ49da4",
     authDomain: "pdflogin-47793.firebaseapp.com",
@@ -20,11 +21,16 @@ const signOut = () => auth.signOut();
 
 function MyApp({Component, pageProps}) {
     const [user, setUser] = useState(null);
+    const router= useRouter();
     useEffect(() => {
         firebase.auth().onAuthStateChanged(async (user) => {
             setUser(user);
+            localStorage.setItem('token', user._delegate.accessToken)
+            //reload the page
+            // router.reload();
+            console.log(user._delegate.accessToken)
         });
-    }, []);
+    }, [user]);
     return (
 
         <div className="flex w-full h-screen">
