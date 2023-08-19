@@ -1,14 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import FileDragAndDrop from "@/pages/Components/FileDragAndDrop";
 import SelectField from "@/pages/Components/SelectField";
 import InputField from "@/pages/Components/InputTextField";
 
 const Form = ({disabled}) => {
+    const [uploadedData, setUploadedData] = useState([]);
+
+    // Define a callback function to receive data from App component
+    const handleDataUpload = (data) => {
+        // Do something with the data in the parent component
+        setUploadedData([...uploadedData, ...data]);
+    };
     return (
         <div className={"flex flex-col gap-5"}>
             <form className={"flex flex-col gap-6"}>
 
-                <FileDragAndDrop disabled={disabled}/>
+                <FileDragAndDrop onDataUpload={handleDataUpload} disabled={disabled}/>
                 <SelectField type={"text"} disabled={disabled} title={"Hello "} content={"Hello"}/>
                 <SelectField type={"text"} disabled={disabled} title={"Hello "} content={"Hello"}/>
                 <SelectField type={"tags"} disabled={disabled} title={"Hello "} content={"Hello"}/>
