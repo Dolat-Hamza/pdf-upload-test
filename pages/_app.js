@@ -24,11 +24,11 @@ function MyApp({Component, pageProps}) {
     const router= useRouter();
     useEffect(() => {
         firebase.auth().onAuthStateChanged(async (user) => {
-            setUser(user);
-            localStorage.setItem('token', user._delegate.accessToken)
+            setUser(user?user:"");
+            localStorage.setItem('token', user&&user._delegate.accessToken?user&&user._delegate.accessToken:"")
             //reload the page
             // router.reload();
-            console.log(user._delegate.accessToken)
+            console.log(user&&user._delegate.accessToken?user&&user._delegate.accessToken:"")
         });
     }, [user]);
     return (
