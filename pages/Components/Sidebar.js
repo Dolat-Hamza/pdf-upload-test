@@ -48,10 +48,13 @@ const Sidebar = (props) => {
                 </ul>
             </nav>
             <div className={"flex flex-col w-full py-2 px-4 mt-4 gap-4 items-center"}>
-                <button onClick={props.signIn}
-                        className="bg-red-500 rounded-xl h-11  hover:bg-red-600 text-white   w-9/12">
+                {props.user?<button onClick={props.signOut}
+                                  className="bg-red-500 rounded-xl h-11  hover:bg-red-600 text-white   w-9/12">
+                    Logout
+                </button>:<button onClick={props.signIn}
+                                  className="bg-red-500 rounded-xl h-11  hover:bg-red-600 text-white   w-9/12">
                     Login
-                </button>
+                </button>}
                 <div>
                     <p className={"text-black"}>
                         🙌 To support further development of PDF2Anki, upgrade to PDF2Anki Power User.
