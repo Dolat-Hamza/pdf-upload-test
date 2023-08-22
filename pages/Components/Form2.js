@@ -1,8 +1,6 @@
 import React, {useState} from "react";
-import FileDragAndDrop from "@/pages/Components/FileDragAndDrop";
 import SelectField from "@/pages/Components/SelectField";
 import InputField from "@/pages/Components/InputTextField";
-import {Checkbox} from "antd";
 
 const languages = [{"code": "aa", "name": "Afar"}, {"code": "ab", "name": "Abkhazian"}, {
     "code": "ae", "name": "Avestan"
@@ -139,7 +137,7 @@ const tags = [{
 
 ]
 
-const Form = ({disabled}) => {
+const Form2 = ({disabled}) => {
     const [uploadedData, setUploadedData] = useState([]);
 
     // Define a callback function to receive data from App component
@@ -150,25 +148,24 @@ const Form = ({disabled}) => {
     return (<div className={"flex flex-col w-full gap-5"}>
         <form className={"flex flex-col gap-6"}>
 
-            <FileDragAndDrop title={"Please upload your PDF file"} onDataUpload={handleDataUpload} disabled={disabled}/>
-            <SelectField type={"text"} disabled={disabled}
-                         title={"Select the language of the LECTURE/NOTE material "} content={"Title"}
-                         options={languages}/>
-            <SelectField type={"tags"} options={tags} disabled={disabled}
-                         title={"Select the desired styles of your flashcards "}
-                         content={"Hello"}/>
+
+            <InputField disabled={disabled} type={"description"} title={"Paste your text notes here: "}
+                        content={"Hello"}/>
+            <p className={"text-black"}> Example Format Given to AI: What is the capital of France?; Paris.</p>
+            <InputField type={"text"} disabled={disabled} title={"Ideal Sample Training Question 1 "}
+                        content={"Hello"}/>
+            <InputField type={"text"} disabled={disabled} title={"Ideal Sample Training Answer 1 "} content={"Hello"}/>
+            <InputField type={"text"} disabled={disabled} title={"Ideal Sample Training Question 2"} content={"Hello"}/>
+            <InputField type={"text"} disabled={disabled} title={"Ideal Sample Training Answer 2"} content={"Hello"}/>
             <SelectField type={"text"}
                          options={[{"code": "1", name: "Normal"}, {"code": "2", name: "Minimal yet crucial"}]}
                          disabled={disabled}
-                         title={"Select the amount of flashcards generated per chunk (a chunk is 500 characters or around 83 words by default): "}
+                         title={"Select the difficulty of questions: "}
                          content={"Hello"}/>
-            <InputField disabled={disabled} type={"text"} title={"Enter your deck name "} content={"Hello"}/>
-            <div>
-                <Checkbox disabled={disabled}>Generate Multiple Choice Questions (MCQs) along with Flashcards (This will
-                    take double the time)</Checkbox>
-            </div>
+
+
         </form>
 
     </div>)
 }
-export default Form;
+export default Form2;

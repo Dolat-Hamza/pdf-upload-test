@@ -1,6 +1,6 @@
 import React from 'react';
-import { Slider, Form, Button } from 'antd';
-import { QuestionCircleOutlined } from "@ant-design/icons";
+import {Button, Form, Slider} from 'antd';
+import {QuestionCircleOutlined} from "@ant-design/icons";
 
 const SliderForm = () => {
     const [form] = Form.useForm();
@@ -25,10 +25,10 @@ const SliderForm = () => {
                     <div>
                         Enter the chunk size. (Default: 1250)
                     </div>
-                    <QuestionCircleOutlined />
+                    <QuestionCircleOutlined/>
                 </div>
                 <Form.Item className={"w-full"} name="slider1">
-                    <Slider />
+                    <Slider/>
                 </Form.Item>
             </div>
             <div className={"flex flex-col"}>
@@ -36,10 +36,10 @@ const SliderForm = () => {
                     <div>
                         Enter the chunk overlap. (Default: 150)
                     </div>
-                    <QuestionCircleOutlined />
+                    <QuestionCircleOutlined/>
                 </div>
                 <Form.Item className={"w-full"} name="slider2">
-                    <Slider />
+                    <Slider/>
                 </Form.Item>
             </div>
 
@@ -48,10 +48,10 @@ const SliderForm = () => {
                     <div>
                         Set the AI model temperature. (Default: 0.1)
                     </div>
-                    <QuestionCircleOutlined />
+                    <QuestionCircleOutlined/>
                 </div>
                 <Form.Item className={"w-full"} name="slider3">
-                    <Slider />
+                    <Slider/>
                 </Form.Item>
             </div>
 

@@ -3,6 +3,7 @@
 import Form from "@/pages/Components/Form";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import Form2 from "@/pages/Components/Form2";
 
 function Home() {
     const [disabled, setDisabled] = useState(true)
@@ -30,8 +31,15 @@ function Home() {
                 can be imported into Anki and .txt that can be imported into other flashcard programmes using AI. Only
                 text from PDFs are supported. Images are not supported at the moment.</p>
             <div className={"flex flex-row gap-4 w-full"}>
-                <Form disabled={disabled}/>
-                <Form disabled={disabled}/>
+                <Form disabled={disabled}/><Form2 disabled={disabled}/>
+
+            </div>
+            <div>
+                <p className={"text-black"}>Converts PDF files such as lecture slides, notes and PPTs into a .apkg file
+                    that
+                    can be imported into Anki and .txt that can be imported into other flashcard programmes using AI.
+                    Only
+                    text from PDFs are supported. Images are not supported at the moment.</p>
             </div>
 
         </div>

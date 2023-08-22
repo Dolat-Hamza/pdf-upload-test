@@ -13,7 +13,7 @@ const SelectField = ({title, content, disabled, type, options}) => {
                     <QuestionCircleOutlined/>
                 </Tooltip>
             </div>
-            <Select mode={type}   disabled={disabled} >
+            <Select mode={type} disabled={disabled}>
 
                 {options && options.map((items) => {
                     return <Select.Option key={items.code} value={items.name}>{items.name}</Select.Option>
