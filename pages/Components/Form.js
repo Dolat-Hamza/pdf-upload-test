@@ -129,14 +129,12 @@ const tags = [{
     "code": "2", "name": "Inferential"
 }, {
     "code": "3", "name": "Comparative"
+},  {
+    "code": "4", "name": "Cause & Effect"
 }, {
-    "code": "4", "name": "Comparative"
+    "code": "5", "name": "Vocabulary Definition"
 }, {
-    "code": "5", "name": "Cause & Effect"
-}, {
-    "code": "6", "name": "Vocabulary Definition"
-}, {
-    "code": "7", "name": "Process Explanation"
+    "code": "6", "name": "Process Explanation"
 },
 
 ]

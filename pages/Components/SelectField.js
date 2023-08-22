@@ -16,7 +16,7 @@ const SelectField = ({title, content, disabled, type, options}) => {
             <Select mode={type}   disabled={disabled} >
 
                 {options && options.map((items) => {
-                    return <Select.Option key={items.code} value="demo">{items.name}</Select.Option>
+                    return <Select.Option key={items.code} value={items.name}>{items.name}</Select.Option>
                 })
                 }
 
