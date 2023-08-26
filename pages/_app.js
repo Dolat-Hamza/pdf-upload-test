@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({prompt: "select_account"});// Sign in and sign out functins
-const signIn = () => auth.signInWithRedirect(provider);
+const signIn = () => auth.signInWithPopup(provider);
 const signOut = () => auth.signOut();
 
 function MyApp({Component, pageProps}) {
@@ -24,6 +24,7 @@ function MyApp({Component, pageProps}) {
     const router = useRouter();
     useEffect(() => {
         firebase.auth().onAuthStateChanged(async (user) => {
+            console.log("user is",user)
             setUser(user ? user : "");
             localStorage.setItem('token', user && user._delegate.accessToken ? user && user._delegate.accessToken : "")
             //reload the page

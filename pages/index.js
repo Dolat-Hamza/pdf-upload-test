@@ -5,23 +5,16 @@ import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import Form2 from "@/pages/Components/Form2";
 
-function Home() {
+function Home(props) {
     const [disabled, setDisabled] = useState(true)
+    const router = useRouter()
+
+
     useEffect(
         () => {
-            checkLogin()
-        }, [disabled]
+     props.user&&props.user._delegate.accessToken ? setDisabled(false) : setDisabled(true)
+        }, [disabled,props.user]
     )
-    const router = useRouter()
-    const checkLogin = () => {
-        if (localStorage.getItem('token') !== null) {
-
-            setDisabled(false)
-            return true
-        }
-        return false
-
-    }
     return (
         <div className={"flex flex-col items-center justify-center gap-4"}>
             <h1 className="mt-40 text-2xl bg-red-50 rounded-xl w-full h-11 text-center text-black font-semibold ">👈
